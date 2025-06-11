@@ -4756,7 +4756,6 @@ MonoBehaviour:
   levelGOS: {fileID: 242030517}
   audioScript: {fileID: 2076626840}
   startScreen: {fileID: 877924137}
-  leaderboardSplash: {fileID: 0}
 --- !u!4 &944311619
 Transform:
   m_ObjectHideFlags: 0
@@ -7444,6 +7443,7 @@ MonoBehaviour:
   timerLimit: 0
   hasFormat: 1
   format: 0
+  countdownFinished: 0
 --- !u!114 &1622001565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10327,6 +10327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66415aad851ec7749adcc53289be8b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerManagerScript: {fileID: 1622001564}
   gameOverScript: {fileID: 944311618}
   musicPlayer: {fileID: 2076626841}
   audioClips:
@@ -10339,8 +10340,6 @@ MonoBehaviour:
   lostPlayed: 0
   winPlayed: 0
   musicStarted: 0
-  animator: {fileID: 0}
-  spriteRenderer: {fileID: 0}
 --- !u!82 &2076626841
 AudioSource:
   m_ObjectHideFlags: 0

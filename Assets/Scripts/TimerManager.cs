@@ -25,7 +25,14 @@ public class TimerManager : MonoBehaviour
     public TimerFormats format;
     private Dictionary<TimerFormats, string> timeFormats = new Dictionary<TimerFormats, string>();
 
+    public bool countdownFinished = false;
+    
     // Start is called before the first frame update
+    public void StartTimer()
+    {
+        countdownFinished = true;
+    }
+    
     void Start()
     {
         //Creates a library reference point
@@ -37,28 +44,32 @@ public class TimerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Scene current = SceneManager.GetActiveScene();
-        //? means if true
-        //: means other
-        currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
-
-        //Creates a stop limit for the timer
-        if (hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))
+        if (countdownFinished)
         {
-            currentTime = timerLimit;
-            SetTimerText();
-            //To change text color
-            //timerText.color = Color.red;
-            enabled = false;
-        }
+            Scene current = SceneManager.GetActiveScene();
+            //? means if true
+            //: means other
+            currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
-        if(currentTime <= 0)
-        {
-            currentTime = 0;
-            splashScreen.SetActive(true);
-        }
+            //Creates a stop limit for the timer
+            if (hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))
+            {
+                currentTime = timerLimit;
+                SetTimerText();
+                //To change text color
+                //timerText.color = Color.red;
+                enabled = false;
+            }
 
-        SetTimerText();
+            if(currentTime <= 0)
+            {
+                currentTime = 0;
+                splashScreen.SetActive(true);
+            }
+
+            SetTimerText(); 
+        }
+        
     }
 
     private void SetTimerText()

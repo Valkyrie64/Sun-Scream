@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioScript : MonoBehaviour
 {
+    public TimerManager timerManagerScript;
     public GameOverManager gameOverScript;
     public AudioSource musicPlayer;
     public AudioClip[] audioClips;
@@ -15,7 +16,7 @@ public class AudioScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameOverScript = GetComponent<GameOverManager>();
+        
     }
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class AudioScript : MonoBehaviour
             musicPlayer.clip = audioClips[0];
             musicPlayer.loop = true;
             musicPlayer.Play();
+            timerManagerScript.StartTimer();
         }
     }
 
