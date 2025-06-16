@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    public GameObject leaderboardSplash;
     public GameObject finishScreen;
     public GameObject splashScreen;
     public GameObject timerGO;
@@ -22,6 +23,7 @@ public class GameOverManager : MonoBehaviour
         startScreen.SetActive(true);
         finishScreen.SetActive(false);
         splashScreen.SetActive(false);
+        leaderboardSplash.SetActive(false);
         levelGOS.SetActive(false);
         sunburnNumGet = playerGO.GetComponent<Movement>();
         timerNumGet = timerGO.GetComponent<TimerManager>();
@@ -55,9 +57,16 @@ public class GameOverManager : MonoBehaviour
         audioScript.CountdownStart();
         startScreen.SetActive(false);
     }
+
+    public void LeaderboardButton()
+    {
+        leaderboardSplash.SetActive(true);
+        finishScreen.SetActive(false);
+    }
     
     public void RetryButton()
     {
+        leaderboardSplash.SetActive(false);
         SceneManager.LoadScene(1);
     }
 

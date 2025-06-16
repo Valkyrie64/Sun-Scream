@@ -164,7 +164,7 @@ public class Movement : MonoBehaviour
                 Destroy(collision.gameObject);
                 break;
             case "Finish":
-                finishTime = 100 - timerManager.currentTime;
+                finishTime = 120 - timerManager.currentTime;
                 PlayerPrefs.SetFloat("BestTime", finishTime);
                 bestText.text = $"finishTime.ToString()";
                 isFinished = true;
