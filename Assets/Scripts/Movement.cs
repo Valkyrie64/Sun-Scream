@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
 
 public class Movement : MonoBehaviour
@@ -28,6 +29,7 @@ public class Movement : MonoBehaviour
     public GameObject bestTimeGO;
     public TMP_Text bestText;
     public float bestTime;
+    public LeaderboardScript leaderboardScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -165,7 +167,11 @@ public class Movement : MonoBehaviour
                 break;
             case "Finish":
                 finishTime = 120 - timerManager.currentTime;
-                PlayerPrefs.SetFloat("BestTime", finishTime);
+                var checkIfBetter = PlayerPrefs.GetFloat("BestTime");
+                if (finishTime < checkIfBetter)
+                {
+                    PlayerPrefs.SetFloat("BestTime", finishTime);
+                }
                 bestText.text = $"finishTime.ToString()";
                 isFinished = true;
                 break;

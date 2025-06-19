@@ -12,7 +12,7 @@ public class LeaderboardScript : MonoBehaviour
     void Start()
     {
         string checkSavedTime = PlayerPrefs.GetFloat("BestTime").ToString();
-        for (int i = 4; i > 0; i--)
+        for (int i = leaderboardCells.Count - 1; i >= 0; i--)
         {
             var playerTime = leaderboardCells[i].GetComponent<TMP_Text>();
             playerTime.text = checkSavedTime;
@@ -23,20 +23,23 @@ public class LeaderboardScript : MonoBehaviour
             float above = float.Parse(aboveTime);
             if (time < above)
             {
-                //var newTimeSet = timeCheck;
-                //var worseTime = aboveTime;
-                //aboveTime = newTimeSet;
-                //timeCheck = worseTime;
-                
+                var tempAbove = aboveTime;
+                playerTime.text = tempAbove;
+                checkAboveTime.text = checkSavedTime;
                 Debug.Log("PlayerTime is better than above");
             }
 
             if (time > above)
             {
+                playerTime.color = Color.green;
+                i = 0;
                 Debug.Log("PlayerTime is worse than above");
             }
-            Debug.Log(timeCheck);
         }
+    }
+
+    public void SetLeaderboard()
+    {
     }
 
     
