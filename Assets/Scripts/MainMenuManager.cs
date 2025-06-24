@@ -17,6 +17,11 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    public void MenuButtonClicked()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void StartButtonClicked()
     {
         SceneManager.LoadScene(1);
@@ -25,5 +30,10 @@ public class MainMenuManager : MonoBehaviour
     public void ExitButtonClicked()
     {
         Application.Quit();
+    }
+
+    public void CreditsButtonClicked()
+    {
+        SceneManager.LoadScene(3);
     }
 }

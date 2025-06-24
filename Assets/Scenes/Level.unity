@@ -7903,7 +7903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashScreen: {fileID: 2026176436}
   timerText: {fileID: 1622001565}
-  currentTime: 90
+  currentTime: 120
   countDown: 1
   hasLimit: 0
   timerLimit: 0
@@ -10028,7 +10028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2004227214
 Transform:
   m_ObjectHideFlags: 0
